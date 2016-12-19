@@ -216,7 +216,7 @@ else
 	tar zxvf redis-2.8.22.tar.gz
 	cd redis-2.8.22
 	make
-	make test
+	taskset -c 1 sudo make test
 	if [ "$?" -eq 0 ];then
 		mkdir -p /data/lnmp/redis/{logs,bin,data,conf,sbin,run}
 		cd src
